@@ -13,7 +13,7 @@
 - ✅ Automatic grading based on model answers  
 - ✅ Provides detailed feedback & suggestions  
 - ✅ Score visualization with performance status  
-
+- ✅Download result as PDF
 ---
 
 ## Technologies Used
