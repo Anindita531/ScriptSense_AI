@@ -70,3 +70,31 @@ document.getElementById('uploadForm').addEventListener('submit', async (e) => {
         loader.style.display = 'none';
     }
 });
+function downloadPDF() {
+    const data = {
+        marks: document.getElementById('marksDisplay').innerText,
+        maxMarks: document.getElementById('maxMarksDisplay').innerText,
+        feedback: document.getElementById('feedbackBox').innerText,
+        transcription: document.getElementById('transcriptionBox').innerText
+    };
+
+    fetch('http://localhost:3000/download-pdf', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => response.blob())
+    .then(blob => {
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = "evaluation_report.pdf";
+        a.click();
+    })
+    .catch(err => {
+        console.error("Download error:", err);
+        alert("Failed to download PDF");
+    });
+}
