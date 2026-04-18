@@ -78,7 +78,7 @@ function downloadPDF() {
         transcription: document.getElementById('transcriptionBox').innerText
     };
 
-    fetch('http://localhost:3000/download-pdf', {
+    fetch('https://scriptsense-ai.onrender.com/download-pdf', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
